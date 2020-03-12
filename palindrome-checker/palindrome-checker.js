@@ -20,3 +20,29 @@ words.forEach(word => {
   console.log(`'${word}' ${part} palindrome` )
 })
 
+console.log("-----------second solution--------------");
+function palindromeSolutionTwo(word){
+  word = word.toLowerCase().replace(/[^a-z0-9]/gi, "");
+  let reversed = word.split('').reverse().join('');
+  return reversed === word;
+}
+
+words.forEach(word => {
+  let isPalindrome = palindromeSolutionTwo(word);
+  let part = (isPalindrome === true) ? "is" : "is not"
+  console.log(`'${word}' ${part} palindrome` )
+})
+
+console.log("------------third solution-----------------")
+function palindromeSolutionThree(word){
+  word = word.toLowerCase().replace(/[^a-z0-9]/gi, "");
+  return word.split('').every((char, i) => {
+    return char === word[word.length - 1 - i];
+  });
+}
+
+words.forEach(word => {
+  let isPalindrome = palindromeSolutionThree(word);
+  let part = (isPalindrome === true) ? "is" : "is not"
+  console.log(`'${word}' ${part} palindrome` )
+})
