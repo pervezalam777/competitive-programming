@@ -1,3 +1,13 @@
+/**
+ * This function takes string and convert that into a map
+ * @param {ball} str
+ * @returns charMap =  {
+ *  "b":1,
+ *  "a":1,
+ *  "l":2
+ * } 
+ */
+
 function getCharMap(str){
     const charMap = {}
     for(let char of str){
@@ -6,6 +16,11 @@ function getCharMap(str){
     return charMap;
 }
 
+/**
+ * 
+ * @param {"aBc1 def2"} str
+ * @returns {"abc1def2"} str
+ */
 function sanitize(str){
     return str.replace(/[^a-z0-9]/gi, "").toLowerCase();
 }
