@@ -37,7 +37,7 @@ console.log(fibonacci(5));
 console.log(fibonacci(8));
 //-------------------------------------------
 // Following is not good for performance perspective.
-// Run time complexity is 
+// Run time complexity is O(2^n) or exponential
 function fibRecursion(n){
     if(n <= 1){
         return n;
