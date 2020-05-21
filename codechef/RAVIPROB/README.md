@@ -30,3 +30,12 @@ B ≤ A ≤ 100
 
 ## Explanation
 Example case 1. There can be many possibilities like (1,1,8) or (2,3,5). But maximum product will be obtained only when 3 positive integers are 3,4,3 . (sum = 10, product = 36 which is maximum possible).
+
+## Solution
+To solve the problem of sum = 10 and product = 36 with three possible numbers. we can pick out 3,3,3 which makes 9 and then add remainder to the any of the number (e.g. to last one) so the answer will be **3,3,4**
+- get the dividend = Math.floor(10/3) => 3
+
+Let us take another example of sum = 7 and product is 3*4 with two possible number. 
+- get the dividend = Math.floor(7/2); => 3
+- take out number of 3 from 7 => 3,3
+- add the remainder to last one *3,4*
