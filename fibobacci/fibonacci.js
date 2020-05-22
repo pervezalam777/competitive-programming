@@ -44,8 +44,42 @@ function fibRecursion(n){
     }
     return fibRecursion(n-1) + fibRecursion(n-2)
 }
-console.log("--------------------------")
+console.log("Recursion --------------------------")
 console.log(fibRecursion(0));
 console.log(fibRecursion(1));
 console.log(fibRecursion(5));
 console.log(fibRecursion(8));
+ 
+// ----------------------------------------------
+/*
+To improve performance of recursive solution of fibonacci 
+we can use memoization, so following solution makes recursion 
+bit fast to memoize same function call.
+*/
+function memoize(fn){
+    const cache = {}
+    return function(...args){
+        if(cache[args]){
+            return cache[args];
+        }
+
+        const result = fn.apply(null, args);
+        cache[args] = result;
+        return result;
+    }
+}
+
+function fibRec(n){
+    if(n <= 1){
+        return n;
+    }
+    return fibMemo(n-1) + fibMemo(n-2)
+}
+
+let fibMemo = memoize(fibRec);
+
+console.log("Recursion with Memo--------------------------")
+console.log(fibMemo(0));
+console.log(fibMemo(1));
+console.log(fibMemo(5));
+console.log(fibMemo(8));
