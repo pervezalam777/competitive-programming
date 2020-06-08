@@ -1,0 +1,13 @@
+{
+  "name": "problem1",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "node --inspect index.js"
+  },
+  "author": "",
+  "license": "ISC"
+}
