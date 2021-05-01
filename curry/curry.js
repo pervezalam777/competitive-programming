@@ -3,6 +3,7 @@ let add = function(a, b){ return a + b; }
 let greeting = function(name){ return "Hello " + name; }
 
 //---------------------first implementation-------------------------------
+console.log("-----------------1-------------------")
 function makeCurry(fun, ...rest){
     return function(...innerRest){
         if(fun.length === rest.length + 1){
@@ -23,7 +24,7 @@ result = makeCurry(greeting)('Pervez')
 console.log('Greetings: ', result)
 
 //---------------------second implementation------------------------------
-console.log("------------------------------------")
+console.log("----------------2--------------------")
 let curry = (fun, ...rest) => 
                     (...more) => 
                         (fun.length === rest.length + 1)
@@ -40,7 +41,7 @@ result = curry(greeting)('Pervez')
 console.log('Greetings: ', result)
 
 // -----------------------third implementation------------------------------
-console.log("------------------------------------")
+console.log("-----------------3-------------------")
 Function.prototype.curry = function(){
     var fn = this,
         args = Array.prototype.slice.call(arguments);
@@ -64,4 +65,20 @@ result = add.curry(10)(14);
 console.log('Addition of 10+14 = ', result);
 
 result = greeting.curry('Pervez')
+console.log('Greetings: ', result)
+
+//------------------------Fourth implementation-----------------------------
+console.log("-----------------4-------------------")
+let curryWithArraySliceAndBind = function (fn) {
+    var args = Array.prototype.slice.call(arguments, 1);
+    return fn.bind.apply(fn, [this].concat(args));
+};
+
+var result = curryWithArraySliceAndBind(multiply, 2, 3, 4)();
+console.log('Multiply of 2*6*3 = ', result);
+
+result = curryWithArraySliceAndBind(add, 10, 14)();
+console.log('Addition of 10+14 = ', result);
+
+result = curryWithArraySliceAndBind(greeting, 'Pervez')()
 console.log('Greetings: ', result)
